@@ -20,6 +20,7 @@ export const SelectedPicture = styled.div<selectedPictureProps>`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  transition:0.3s all;
 `;
 export const Thumbnails:any = styled.div`
   width: 18%;
@@ -32,7 +33,6 @@ export const Thumbnails:any = styled.div`
   cursor: ns-resize;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  transition:4s all;
   &::-webkit-scrollbar {
     display: none;
   }
