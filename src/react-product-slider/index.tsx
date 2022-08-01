@@ -4,26 +4,22 @@ type imageType = {
   src: string;
   alt?: string;
 };
-type reactProductSliderTypes = {
+type Props = {
   items: { images: imageType[]; thumbnails: imageType[] };
   classNamePrefix?: string;
   rtl?: boolean;
 };
-const ReactProductSlider = ({
-  items,
-}: reactProductSliderTypes): JSX.Element => {
+const ReactProductSlider: React.FC<Props> = ({ items }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   return (
     <SliderContainer>
-      <SelectedPicture>
-        <img
-          src={items.images[selectedIndex]["src"]}
-          alt={items.images[selectedIndex]["alt"]}
-        />
-      </SelectedPicture>
+      <SelectedPicture background={items.images[selectedIndex]["src"]} />
       <Thumbnails>
         {items.thumbnails.map((thumbnail: imageType, index: number) => (
-          <div className="thumbnail" key={index}>
+          <div
+            className={`thumbnail${selectedIndex === index ? " selected" : ""}`}
+            key={index}
+          >
             <img
               src={thumbnail["src"]}
               alt={thumbnail["alt"]}

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 export const AppContainer = styled.div`
   width: 70%;
-  height: 600px;
+  height: 700px;
   display: flex;
   justify-content: space-between;
-  margin:auto;
-  margin-top:64px;
+  margin: auto;
+  margin-top: 64px;
   .slider {
     height: 100%;
     width: 60%;
@@ -14,7 +14,7 @@ export const AppContainer = styled.div`
     height: 100%;
     width: 39%;
     .link-to-photographer {
-      text-decoration:none;
+      text-decoration: none;
       color: #7f7f7f;
       border: 1px solid;
       border-radius: 6px;

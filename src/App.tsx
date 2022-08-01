@@ -46,4 +46,3 @@ function App() {
   );
 }
 export default App;
-// Photo by Godisable Jacob: https://www.pexels.com/photo/person-looking-up-while-sitting-on-a-yellow-chair-10481316/
