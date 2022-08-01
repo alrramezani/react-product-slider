@@ -1,7 +1,24 @@
 {
   "name": "react-product-slider",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "product slider for e-commerce websites",
+  "author": "Alireza Ramezani",
+  "keywords": [
+    "react",
+    "components",
+    "ui"
+  ],
+  "main": "dist/index.tsx",
+  "module": "dist/index.tsx",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jawblia/npm-test.git"
+  },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@testing-library/jest-dom": "^5.16.3",
