@@ -1,5 +1,5 @@
 import ReactProductSlider from "./react-product-slider";
-import {AppContainer} from "./appStyle"
+import { AppContainer } from "./appStyle";
 const items = {
   images: [
     { src: "mockImages/slide-1.jpg", alt: "slide-1" },
@@ -28,7 +28,20 @@ const items = {
 function App() {
   return (
     <AppContainer>
-      <ReactProductSlider items={items} />
+      <div className="slider">
+        <ReactProductSlider items={items} />
+      </div>
+      <div className="content">
+        <h4>React Product Slider</h4>
+        <a
+          href="https://www.pexels.com/@godisable-jacob-226636"
+          target="_blank"
+          rel="noreferrer"
+          className="link-to-photographer"
+        >
+          Photos by Godisable Jacob
+        </a>
+      </div>
     </AppContainer>
   );
 }
