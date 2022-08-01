@@ -21,7 +21,7 @@ export const SelectedPicture = styled.div<selectedPictureProps>`
   background-position: center;
   background-size: cover;
 `;
-export const Thumbnails = styled.div`
+export const Thumbnails:any = styled.div`
   width: 18%;
   height: 100%;
   display: flex;
@@ -32,6 +32,7 @@ export const Thumbnails = styled.div`
   cursor: ns-resize;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  transition:4s all;
   &::-webkit-scrollbar {
     display: none;
   }

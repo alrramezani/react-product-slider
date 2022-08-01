@@ -6,7 +6,7 @@ export const NavigatorContainer = styled.div`
   bottom: 16px;
   left: 16px;
   color: #fff;
-  text-shadow: 0 0 black;
+  text-shadow: 0 0 3px black;
   font-size: 18px;
   .map{
     margin:0 4px ;
