@@ -8,13 +8,14 @@ export const SliderContainer = styled.div`
   width: 100%;
   height: 100%;
   max-height: 100%;
+  position:relative ;
 `;
 export const SelectedPicture = styled.div<selectedPictureProps>`
   width: 80%;
   height: 100%;
   display: flex;
   justify-content: center;
-  cursor: pointer;
+  cursor: zoom-in;
   background-image: url(${({ background }) => background});
   background-repeat: no-repeat;
   background-position: center;

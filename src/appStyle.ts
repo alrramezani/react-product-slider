@@ -15,7 +15,7 @@ export const AppContainer = styled.div`
     width: 39%;
     .link-to-photographer {
       text-decoration: none;
-      color: #7f7f7f;
+      color: #575757;
       border: 1px solid;
       border-radius: 6px;
       border-color: #dfdfe0;
