@@ -35,11 +35,11 @@ export default App;
 
 ## Props
 
-| Property          | Required | Example                                                                                                                           |
-| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `items`           | **yes**  | `{ images: [{ src: "mockImages/slide.jpg", alt: "slide" }],thumbnails: [{ src: "mockImages/thumbnail.jpg", alt: "thumbnail" }],}` |
-| `classNamePrefix` | _no_     | `my-rps`                                                                                                                          |
-
+| Property          | Required | Default | Example                                                                                                                           |
+| ----------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `items`           | **yes**  | --      | `{ images: [{ src: "mockImages/slide.jpg", alt: "slide" }],thumbnails: [{ src: "mockImages/thumbnail.jpg", alt: "thumbnail" }],}` |
+| `classNamePrefix` | _no_     | --      | `my-rps`                                                                                                                          |
+| `reverse`         | _no_     | false   | true                                                                                                                              |
 
 ---
 

@@ -1,9 +1,10 @@
 import styled from "styled-components";
+type sliderContainerProps = {
+  zoomStatus?: boolean;
+  reverse?: boolean;
+};
 type selectedPictureProps = {
   background: string;
-  zoomStatus?: boolean;
-};
-type sliderContainerProps = {
   zoomStatus?: boolean;
 };
 type thumbnailsProps = {
@@ -21,6 +22,7 @@ export const SliderContainer = styled.div<sliderContainerProps>`
   top: 0;
   box-sizing: border-box;
   z-index: 999;
+  flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
   ${({ zoomStatus }) =>
     zoomStatus
       ? `

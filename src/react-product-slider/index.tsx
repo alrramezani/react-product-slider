@@ -8,9 +8,10 @@ type imageType = {
 type Props = {
   items: { images: imageType[]; thumbnails: imageType[] };
   classNamePrefix?: string;
+  reverse?: boolean;
   rtl?: boolean;
 };
-const ReactProductSlider: React.FC<Props> = ({ items, classNamePrefix }) => {
+const ReactProductSlider: React.FC<Props> = ({ items, classNamePrefix,reverse }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [zoomStatus, setZoomStatus] = useState<boolean>(false);
   useEffect(() => {
@@ -42,6 +43,7 @@ const ReactProductSlider: React.FC<Props> = ({ items, classNamePrefix }) => {
   return (
     <SliderContainer
       zoomStatus={zoomStatus}
+      reverse={reverse}
       className={classNameMaker("slider-container")}
     >
       <span
