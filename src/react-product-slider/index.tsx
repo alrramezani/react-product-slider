@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
 import { SliderContainer, SelectedPicture, Thumbnails } from "./style";
 import Navigator from "./components/navigator";
 type imageType = {
@@ -11,9 +11,12 @@ type Props = {
   rtl?: boolean;
 };
 const ReactProductSlider: React.FC<Props> = ({ items }) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const thumbnailsRef = useRef<null | HTMLDivElement>(null);
-
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [zoomStatus, setZoomStatus] = useState<boolean>(false);
+  useEffect(() => {
+    let item = window.document.getElementById(`thumbnail-${selectedIndex}`);
+    item?.scrollIntoView({ behavior: "smooth" });
+  }, [zoomStatus]);
   const navigate = (direction: string) => {
     let newSelected: number = 0;
     if (direction === "next") {
@@ -23,9 +26,9 @@ const ReactProductSlider: React.FC<Props> = ({ items }) => {
     }
     if (direction === "prev") {
       if (selectedIndex !== 0) {
-        newSelected=selectedIndex - 1;
+        newSelected = selectedIndex - 1;
       } else {
-        newSelected=items.images.length - 1;
+        newSelected = items.images.length - 1;
       }
     }
     setSelectedIndex(newSelected);
@@ -34,14 +37,29 @@ const ReactProductSlider: React.FC<Props> = ({ items }) => {
   };
 
   return (
-    <SliderContainer>
-      <SelectedPicture background={items.images[selectedIndex]["src"]} />
-      <Navigator
-        selected={selectedIndex}
-        count={items.images.length}
-        navigate={navigate}
-      />
-      <Thumbnails ref={thumbnailsRef}>
+    <SliderContainer zoomStatus={zoomStatus}>
+      <span
+        className="close-but"
+        onClick={() => {
+          setZoomStatus(false);
+        }}
+      >
+        &#x2715;
+      </span>
+      <SelectedPicture
+        background={items.images[selectedIndex]["src"]}
+        zoomStatus={zoomStatus}
+        onClick={() => {
+          setZoomStatus(true);
+        }}
+      >
+        <Navigator
+          selected={selectedIndex}
+          count={items.images.length}
+          navigate={navigate}
+        />
+      </SelectedPicture>
+      <Thumbnails zoomStatus={zoomStatus}>
         {items.thumbnails.map((thumbnail: imageType, index: number) => (
           <div
             className={`thumbnail${selectedIndex === index ? " selected" : ""}`}

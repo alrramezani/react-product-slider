@@ -1,6 +1,6 @@
 {
   "name": "react-product-slider",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "private": false,
   "description": "product slider for e-commerce websites",
   "author": "Alireza Ramezani",
@@ -37,7 +37,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && tsc -p tsconfig-lib.json && cp LICENSE README.md dist",
+    "build": "rm -rf dist && tsc -p tsconfig-lib.json",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

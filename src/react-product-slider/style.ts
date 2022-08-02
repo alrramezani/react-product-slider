@@ -1,29 +1,58 @@
 import styled from "styled-components";
 type selectedPictureProps = {
   background: string;
+  zoomStatus?: boolean;
 };
-export const SliderContainer = styled.div`
+type sliderContainerProps = {
+  zoomStatus?: boolean;
+};
+type thumbnailsProps = {
+  zoomStatus?: boolean;
+};
+export const SliderContainer = styled.div<sliderContainerProps>`
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 100%;
   max-height: 100%;
-  position:relative ;
+  width: 100%;
+  left: 0;
+  top: 0;
+  box-sizing: border-box;
+  z-index: 999;
+  ${({ zoomStatus }) =>
+    zoomStatus
+      ? `
+    padding: 64px;
+    position: fixed;
+  `
+      : ""}
+  .close-but {
+    display: ${({ zoomStatus }) => (zoomStatus ? "block" : "none")};
+    font-size: 24px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: #000;
+    cursor: pointer;
+  }
 `;
 export const SelectedPicture = styled.div<selectedPictureProps>`
-  width: 80%;
+  width: ${({ zoomStatus }) => (zoomStatus ? "90%" : "80%")};
   height: 100%;
   display: flex;
   justify-content: center;
-  cursor: zoom-in;
+  cursor: ${({ zoomStatus }) => (zoomStatus ? "default" : "zoom-in")};
   background-image: url(${({ background }) => background});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  transition:0.3s all;
+  background-size: ${({ zoomStatus }) => (zoomStatus ? "contain" : "cover")};
+  transition: 0.3s all;
+  position: relative;
 `;
-export const Thumbnails:any = styled.div`
-  width: 18%;
+export const Thumbnails: any = styled.div<thumbnailsProps>`
+  width: ${({ zoomStatus }) => (zoomStatus ? "8%" : "18%")};
   height: 100%;
   display: flex;
   justify-content: center;
