@@ -3,10 +3,11 @@ type navigatorProps = {
   selected: number;
   count: number;
   navigate: (direction: string) => void;
+  className?:string
 };
-const Navigator: React.FC<navigatorProps> = ({ selected, count, navigate }) => {
+const Navigator: React.FC<navigatorProps> = ({ selected, count, navigate ,className}) => {
   return (
-    <NavigatorContainer>
+    <NavigatorContainer className={className}>
       <div className="next" onClick={(e) => {e.stopPropagation();navigate("next")}}>
         &#8592;
       </div>

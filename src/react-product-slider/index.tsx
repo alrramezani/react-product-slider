@@ -10,13 +10,13 @@ type Props = {
   classNamePrefix?: string;
   rtl?: boolean;
 };
-const ReactProductSlider: React.FC<Props> = ({ items }) => {
+const ReactProductSlider: React.FC<Props> = ({ items, classNamePrefix }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [zoomStatus, setZoomStatus] = useState<boolean>(false);
   useEffect(() => {
     let item = window.document.getElementById(`thumbnail-${selectedIndex}`);
     item?.scrollIntoView({ behavior: "smooth" });
-  }, [zoomStatus]);
+  }, [zoomStatus, selectedIndex]);
   const navigate = (direction: string) => {
     let newSelected: number = 0;
     if (direction === "next") {
@@ -32,14 +32,20 @@ const ReactProductSlider: React.FC<Props> = ({ items }) => {
       }
     }
     setSelectedIndex(newSelected);
-    let item = window.document.getElementById(`thumbnail-${newSelected}`);
-    item?.scrollIntoView({ behavior: "smooth" });
   };
-
+  const classNameMaker = (elementName: string): string => {
+    if (classNamePrefix) {
+      return classNamePrefix + "__" + elementName;
+    }
+    return "";
+  };
   return (
-    <SliderContainer zoomStatus={zoomStatus}>
+    <SliderContainer
+      zoomStatus={zoomStatus}
+      className={classNameMaker("slider-container")}
+    >
       <span
-        className="close-but"
+        className={`close-but ${classNameMaker("close-but")}`}
         onClick={() => {
           setZoomStatus(false);
         }}
@@ -47,6 +53,7 @@ const ReactProductSlider: React.FC<Props> = ({ items }) => {
         &#x2715;
       </span>
       <SelectedPicture
+        className={classNameMaker("selected-picture")}
         background={items.images[selectedIndex]["src"]}
         zoomStatus={zoomStatus}
         onClick={() => {
@@ -54,12 +61,16 @@ const ReactProductSlider: React.FC<Props> = ({ items }) => {
         }}
       >
         <Navigator
+          className={classNameMaker("navigator")}
           selected={selectedIndex}
           count={items.images.length}
           navigate={navigate}
         />
       </SelectedPicture>
-      <Thumbnails zoomStatus={zoomStatus}>
+      <Thumbnails
+        zoomStatus={zoomStatus}
+        className={classNameMaker("thumbnails")}
+      >
         {items.thumbnails.map((thumbnail: imageType, index: number) => (
           <div
             className={`thumbnail${selectedIndex === index ? " selected" : ""}`}
