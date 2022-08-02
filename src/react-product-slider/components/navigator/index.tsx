@@ -7,13 +7,13 @@ type navigatorProps = {
 const Navigator: React.FC<navigatorProps> = ({ selected, count, navigate }) => {
   return (
     <NavigatorContainer>
-      <div className="next" onClick={() => navigate("next")}>
+      <div className="next" onClick={(e) => {e.stopPropagation();navigate("next")}}>
         &#8592;
       </div>
       <div className="map">
         {selected + 1}/{count}
       </div>
-      <div className="prev" onClick={() => navigate("prev")}>
+      <div className="prev" onClick={(e) => {e.stopPropagation();navigate("prev")}}>
         &#8594;
       </div>
     </NavigatorContainer>
