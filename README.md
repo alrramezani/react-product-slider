@@ -40,6 +40,7 @@ export default App;
 | `items`           | **yes**  | --      | `{ images: [{ src: "mockImages/slide.jpg", alt: "slide" }],thumbnails: [{ src: "mockImages/thumbnail.jpg", alt: "thumbnail" }],}` |
 | `classNamePrefix` | _no_     | --      | `my-rps`                                                                                                                          |
 | `reverse`         | _no_     | false   | true                                                                                                                              |
+| `initialSelected` | _no_     | 0       | 3                                                                                                                                 |
 
 ---
 
