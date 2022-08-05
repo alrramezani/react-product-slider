@@ -16,7 +16,7 @@ export const SliderContainer = styled.div<sliderContainerProps>`
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  max-height: 100%;
+  max-height: 100vh;
   width: 100%;
   left: 0;
   top: 0;
@@ -31,7 +31,6 @@ export const SliderContainer = styled.div<sliderContainerProps>`
   `
       : ""}
   .close-but {
-    display: ${({ zoomStatus }) => (zoomStatus ? "block" : "none")};
     font-size: 24px;
     position: absolute;
     top: 16px;
@@ -42,7 +41,7 @@ export const SliderContainer = styled.div<sliderContainerProps>`
 `;
 export const SelectedPicture = styled.div<selectedPictureProps>`
   width: ${({ zoomStatus }) => (zoomStatus ? "90%" : "80%")};
-  height: 100%;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   cursor: ${({ zoomStatus }) => (zoomStatus ? "default" : "zoom-in")};
@@ -55,7 +54,7 @@ export const SelectedPicture = styled.div<selectedPictureProps>`
 `;
 export const Thumbnails: any = styled.div<thumbnailsProps>`
   width: ${({ zoomStatus }) => (zoomStatus ? "8%" : "18%")};
-  height: 100%;
+  max-height:100%;
   display: flex;
   justify-content: center;
   flex-direction: column;

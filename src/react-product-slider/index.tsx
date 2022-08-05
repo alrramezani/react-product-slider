@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 import { SliderContainer, SelectedPicture, Thumbnails } from "./style";
 import Navigator from "./components/navigator";
-type imageType = {
-  src: string;
-  alt?: string;
-};
 type Props = {
-  items: { images: imageType[]; thumbnails: imageType[] };
+  items: { src: string; thumbnail?: string; alt: string }[];
   classNamePrefix?: string;
   initialSelected?: number;
   reverse?: boolean;
-  rtl?: boolean;
 };
 const ReactProductSlider: React.FC<Props> = ({
   items,
@@ -29,7 +24,7 @@ const ReactProductSlider: React.FC<Props> = ({
   const navigate = (direction: string) => {
     let newSelected: number = 0;
     if (direction === "next") {
-      if (selectedIndex < items.images.length - 1) {
+      if (selectedIndex < items.length - 1) {
         newSelected = selectedIndex + 1;
       }
     }
@@ -37,7 +32,7 @@ const ReactProductSlider: React.FC<Props> = ({
       if (selectedIndex !== 0) {
         newSelected = selectedIndex - 1;
       } else {
-        newSelected = items.images.length - 1;
+        newSelected = items.length - 1;
       }
     }
     setSelectedIndex(newSelected);
@@ -54,17 +49,19 @@ const ReactProductSlider: React.FC<Props> = ({
       reverse={reverse}
       className={classNameMaker("slider-container")}
     >
-      <span
-        className={`close-but ${classNameMaker("close-but")}`}
-        onClick={() => {
-          setZoomStatus(false);
-        }}
-      >
-        &#x2715;
-      </span>
+      {zoomStatus && (
+        <span
+          className={`close-but ${classNameMaker("close-but")}`}
+          onClick={() => {
+            setZoomStatus(false);
+          }}
+        >
+          &#x2715;
+        </span>
+      )}
       <SelectedPicture
         className={classNameMaker("selected-picture")}
-        background={items.images[selectedIndex]["src"]}
+        background={items[selectedIndex]["src"]}
         zoomStatus={zoomStatus}
         onClick={() => {
           setZoomStatus(true);
@@ -73,7 +70,7 @@ const ReactProductSlider: React.FC<Props> = ({
         <Navigator
           className={classNameMaker("navigator")}
           selected={selectedIndex}
-          count={items.images.length}
+          count={items.length}
           navigate={navigate}
         />
       </SelectedPicture>
@@ -81,15 +78,15 @@ const ReactProductSlider: React.FC<Props> = ({
         zoomStatus={zoomStatus}
         className={classNameMaker("thumbnails")}
       >
-        {items.thumbnails.map((thumbnail: imageType, index: number) => (
+        {items.map((img, index: number) => (
           <div
             className={`thumbnail${selectedIndex === index ? " selected" : ""}`}
             key={index}
             id={`thumbnail-${index}`}
           >
             <img
-              src={thumbnail["src"]}
-              alt={thumbnail["alt"]}
+              src={img["thumbnail"] ? img["thumbnail"] : img["src"]}
+              alt={img["alt"]}
               onClick={() => {
                 setSelectedIndex(index);
               }}
