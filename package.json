@@ -9,8 +9,9 @@
     "components",
     "ui"
   ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "module": "dist/esm/index.js",
   "files": [
     "dist",
     "README.md"
@@ -19,29 +20,16 @@
     "type": "git",
     "url": "git+https://github.com/alrramezani/react-product-slider"
   },
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^16.11.26",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
-    "@types/styled-components": "^5.1.25",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.0",
-    "styled-components": "^5.3.5",
-    "typescript": "^4.6.3",
-    "web-vitals": "^2.1.4"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rm -rf dist && tsc -p tsconfig-lib.json",
+    "build": "rm -rf dist && npm run build:js && npm run build:esm",
+    "build:js": "tsc -p tsconfig-lib.json --outDir dist/cjs --module CommonJS",
+    "build:esm": "tsc -p tsconfig-lib.json --outDir dist/esm --module ES2015",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -68,6 +56,20 @@
     "@babel/core": "^7.18.9",
     "@babel/parser": "^7.18.10",
     "@babel/preset-env": "^7.18.9",
-    "@babel/types": "^7.18.10"
+    "@babel/types": "^7.18.10",
+    "@testing-library/jest-dom": "^5.16.3",
+    "@testing-library/react": "^12.1.4",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.26",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@types/styled-components": "^5.1.25",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-scripts": "5.0.0",
+    "styled-components": "^5.3.5",
+    "typescript": "^4.6.3",
+    "web-vitals": "^2.1.4"
   }
 }
