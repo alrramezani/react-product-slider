@@ -30,6 +30,7 @@
     "build": "rm -rf dist && npm run build:js && npm run build:esm",
     "build:js": "tsc -p tsconfig-lib.json --outDir dist/cjs --module CommonJS",
     "build:esm": "tsc -p tsconfig-lib.json --outDir dist/esm --module ES2015",
+    "build:page": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
