@@ -1,7 +1,9 @@
 # React Product Slider &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/alrramezani/react-product-slider/blob/master/LICENSE)
 
 ## Demo
+
 [click here for demo](https://alrramezani.github.io/react-product-slider/)
+
 ## Installation
 
 The easiest way to use react-product-slider is to install it from npm.
@@ -14,10 +16,13 @@ npm install react-product-slider
 
 ```jsx
 import ReactProductSlider from "react-product-slider";
-const items = {
-  images: [{ src: "mockImages/slide.jpg", alt: "slide" }],
-  thumbnails: [{ src: "mockImages/thumbnail.jpg", alt: "thumbnail" }],
-};
+const items = [
+  {
+    src: "mockImages/slide.jpg",
+    alt: "slide",
+    thumbnail: "mockImages/thumbnail.jpg",
+  },
+];
 function App() {
   return (
     <div>
