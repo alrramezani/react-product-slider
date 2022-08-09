@@ -1,7 +1,8 @@
 {
   "name": "react-product-slider",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "private": false,
+  "homepage": "https://alrramezani.github.io/react-product-slider/",
   "description": "product slider for e-commerce websites",
   "author": "Alireza Ramezani",
   "keywords": [
