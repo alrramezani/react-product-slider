@@ -5,6 +5,7 @@
   "homepage": "https://alrramezani.github.io/react-product-slider/",
   "description": "product slider for e-commerce websites",
   "author": "Alireza Ramezani",
+  "license": "MIT",
   "keywords": [
     "react",
     "components",
