@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/react-product-slider/static/js/main.aeaf156b.js",
+    "static/js/787.85c4b0f0.chunk.js": "/react-product-slider/static/js/787.85c4b0f0.chunk.js",
+    "index.html": "/react-product-slider/index.html",
+    "main.aeaf156b.js.map": "/react-product-slider/static/js/main.aeaf156b.js.map",
+    "787.85c4b0f0.chunk.js.map": "/react-product-slider/static/js/787.85c4b0f0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.aeaf156b.js"
+  ]
+}
