@@ -18,8 +18,10 @@ const ReactProductSlider: React.FC<Props> = ({
   );
   const [zoomStatus, setZoomStatus] = useState<boolean>(false);
   useEffect(() => {
-    let item = window.document.getElementById(`thumbnail-${selectedIndex}`);
-    item?.scrollIntoView({ behavior: "smooth" });
+    if (window) {
+      let item = window.document.getElementById(`thumbnail-${selectedIndex}`);
+      item?.scrollIntoView({ behavior: "smooth" });
+    }
   }, [zoomStatus, selectedIndex]);
   const navigate = (direction: string) => {
     let newSelected: number = 0;
