@@ -18,11 +18,20 @@ const ReactProductSlider: React.FC<Props> = ({
   );
   const [zoomStatus, setZoomStatus] = useState<boolean>(false);
   useEffect(() => {
-    if (window) {
-      let item = window.document.getElementById(`thumbnail-${selectedIndex}`);
-      item?.scrollIntoView({ behavior: "smooth" });
+    if (typeof document !== "undefined") {
+      let item = document.getElementById(`thumbnail-${selectedIndex}`);
+      item?.scrollIntoView({ behavior: "smooth", block: "end" });
     }
   }, [zoomStatus, selectedIndex]);
+  useEffect(() => {
+    const windowStatus = () => {
+      if (typeof document !== "undefined" && zoomStatus) {
+        document.body.style.overflow = zoomStatus ? "hidden" : "auto";
+        document.body.style.touchAction = zoomStatus ? "none" : "auto";
+      }
+    };
+    windowStatus();
+  }, [zoomStatus]);
   const navigate = (direction: string) => {
     let newSelected: number = 0;
     if (direction === "next") {

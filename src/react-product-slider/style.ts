@@ -37,6 +37,15 @@ export const SliderContainer = styled.div<sliderContainerProps>`
     left: 16px;
     color: #000;
     cursor: pointer;
+    z-index: 1;
+  }
+  @media only screen and (max-width: 768px) {
+    ${({ zoomStatus }) =>
+      zoomStatus
+        ? `
+    padding: 16px;
+  `
+        : ""}
   }
 `;
 export const SelectedPicture = styled.div<selectedPictureProps>`
@@ -51,16 +60,18 @@ export const SelectedPicture = styled.div<selectedPictureProps>`
   background-size: ${({ zoomStatus }) => (zoomStatus ? "contain" : "cover")};
   transition: 0.3s all;
   position: relative;
+  @media only screen and (max-width: 768px) {
+    width: ${({ zoomStatus }) => (zoomStatus ? "90%" : "85%")};
+  }
 `;
 export const Thumbnails: any = styled.div<thumbnailsProps>`
   width: ${({ zoomStatus }) => (zoomStatus ? "8%" : "18%")};
-  max-height:100%;
+  max-height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   overflow-y: auto;
   justify-content: flex-start;
-  cursor: ns-resize;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
@@ -80,5 +91,8 @@ export const Thumbnails: any = styled.div<thumbnailsProps>`
   .selected {
     opacity: 1;
     cursor: ns-resize;
+  }
+  @media only screen and (max-width: 768px) {
+    width: ${({ zoomStatus }) => (zoomStatus ? "8%" : "14%")};
   }
 `;

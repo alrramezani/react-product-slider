@@ -50,22 +50,24 @@ const items = [
 
 function App() {
   return (
-    <AppContainer>
-      <div className="slider">
-        <ReactProductSlider items={items} />
-      </div>
-      <div className="content">
-        <h4>React Product Slider</h4>
-        <a
-          href="https://www.pexels.com/@godisable-jacob-226636"
-          target="_blank"
-          rel="noreferrer"
-          className="link-to-photographer"
-        >
-          Photos by Godisable Jacob
-        </a>
-      </div>
-    </AppContainer>
+    <>
+      <AppContainer>
+        <div className="slider">
+          <ReactProductSlider items={items} />
+        </div>
+        <div className="content">
+          <h4>React Product Slider</h4>
+          <a
+            href="https://www.pexels.com/@godisable-jacob-226636"
+            target="_blank"
+            rel="noreferrer"
+            className="link-to-photographer"
+          >
+            Photos by Godisable Jacob
+          </a>
+        </div>
+      </AppContainer>
+    </>
   );
 }
 export default App;

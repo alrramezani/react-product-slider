@@ -23,4 +23,17 @@ export const AppContainer = styled.div`
       padding: 8px;
     }
   }
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .slider {
+      margin-bottom: 32px;
+      width: 100%;
+      height: 70%;
+    }
+    .content {
+      width: 100%;
+    }
+  }
 `;
